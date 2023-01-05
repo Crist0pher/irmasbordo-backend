@@ -4,16 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.irmasbordo.generic.GenericRepository.GenericRepository;
-
-@Service
-public class GenericService<T, ID, Repository extends GenericRepository<T, ID>> {
+public class GenericService<T, ID, Repository extends JpaRepository<T, ID>> {
 
 
 	@Autowired
-	Repository repository;  
+	protected Repository repository;  
 
 	public Optional<T> findById(ID id) {
 
